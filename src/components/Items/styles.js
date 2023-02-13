@@ -10,7 +10,7 @@ export const Container = styled.View`
     justify-content: space-between;
     border-top-width: 1px;
     border-top-style: solid;
-    border-top-color: #D4D3D3
+    border-top-color: #D4D3D3;
 ;`
 
 export const AreaDescription = styled.View`
@@ -23,6 +23,7 @@ export const PackageId = styled.Text`
     font-size: 16px;
     color: #5C605C;
     font-weight: 500;
+    width: 200px;
 `;
 
 export const StatusLabel = styled.Text`

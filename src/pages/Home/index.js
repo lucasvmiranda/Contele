@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Switch } from 'react-native';
 import { HeaderAndStatus } from '../../components/HeaderAndStatus/index';
 import { LocationContext } from '../../context/locationcontext';
@@ -22,15 +22,12 @@ export function Home() {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     const { setTimeOption, setStatusOption } = useContext(LocationContext);
-    const [temp, setTemp] = useState(1000)
+    const [temp, setTemp] = useState(setTimeOption)
 
-    const setTime = () => [
-        setTimeOption(temp)
-    ]
-
-    const setStatus = () => [
-        setStatusOption(isEnabled)
-    ]
+    const updateTime = (value) =>{
+        setTimeOption(value)
+        setTemp(value)
+    }
 
     return (
         <Container>
@@ -59,19 +56,19 @@ export function Home() {
                         <TitleStatusOptions>Intervalo de comunicação</TitleStatusOptions>
                         <IntervalAreaButton>
 
-                            <ButtonInterval style={{ borderColor: temp === 10000 ? '#5FCD64' : 'gray' }} onPress={() => setTemp(10000)}>
+                            <ButtonInterval style={{ borderColor: temp === 10000 ? '#5FCD64' : 'gray' }} onPress={() => updateTime(10000)}>
                                 <TextButtonInterval>10s</TextButtonInterval>
                             </ButtonInterval>
 
-                            <ButtonInterval style={{ borderColor: temp === 5000 ? '#5FCD64' : 'gray' }} onPress={() => setTemp(5000)}>
+                            <ButtonInterval style={{ borderColor: temp === 5000 ? '#5FCD64' : 'gray' }} onPress={() => updateTime(5000)}>
                                 <TextButtonInterval>5s</TextButtonInterval>
                             </ButtonInterval>
 
-                            <ButtonInterval style={{ borderColor: temp === 3000 ? '#5FCD64' : 'gray' }} onPress={() => setTemp(3000)}>
+                            <ButtonInterval style={{ borderColor: temp === 3000 ? '#5FCD64' : 'gray' }} onPress={() => updateTime(3000)}>
                                 <TextButtonInterval>3s</TextButtonInterval>
                             </ButtonInterval>
 
-                            <ButtonInterval style={{ borderColor: temp === 1000 ? '#5FCD64' : 'gray' }} onPress={() => setTemp(1000)}>
+                            <ButtonInterval style={{ borderColor: temp === 1000 ? '#5FCD64' : 'gray' }} onPress={() => updateTime(1000)}>
                                 <TextButtonInterval>1s</TextButtonInterval>
                             </ButtonInterval>
 

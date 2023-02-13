@@ -4,12 +4,12 @@ import { PermissionsAndroid } from 'react-native';
 import uuid from 'react-native-uuid';
 import { api } from "../lib/api";
 
-export const LocationContext = createContext();
+export const LocationContext = createContext([]);
 
 export function LocationProvider({ children }) {
   const [location, setLocation] = useState([]);
   const [status, setStatus] = useState(true);
-  const [time, setTime] = useState(1000);
+  const [time, setTime] = useState(10000); 
 
   const saveLocale = async (dataLocation) => {
     await api.post(`/points/${dataLocation?.id}`, { dataLocation })
@@ -35,8 +35,8 @@ export function LocationProvider({ children }) {
       position => {
         const { latitude, longitude } = position.coords;
 
-        const dataLocation = { latitude, longitude, data: new Date(), id: uuid.v4() }
-        setLocation([dataLocation, ...location]);
+        const dataLocation = { latitude, longitude, date: new Date(), id: uuid.v4() }
+        setLocation(( prev ) => [...prev, dataLocation]);
         // saveLocale(dataLocation)
       },
       error => {
