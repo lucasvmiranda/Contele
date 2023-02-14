@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
     Container,
     PackageId,
@@ -7,10 +7,7 @@ import {
     DateLabel,
 } from './styles';
 
-import { format } from 'date-fns'
-
 export function Items({ Id, Status, Date }) {
-
     return (
         <Container>
             <AreaDescription>

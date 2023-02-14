@@ -8,8 +8,10 @@ export const LocationContext = createContext([]);
 
 export function LocationProvider({ children }) {
   const [location, setLocation] = useState([]);
-  const [status, setStatus] = useState(true);
-  const [time, setTime] = useState(10000); 
+  const [status, setStatus] = useState();
+  const [time, setTime] = useState(10000);
+  const getHours = new Date().getHours();
+  const getMinutes = new Date().getMinutes();
 
   const saveLocale = async (dataLocation) => {
     await api.post(`/points/${dataLocation?.id}`, { dataLocation })
@@ -30,14 +32,15 @@ export function LocationProvider({ children }) {
     );
   }
 
+
   useEffect(() => {
     const _watchId = Geolocation.watchPosition(
       position => {
         const { latitude, longitude } = position.coords;
 
-        const dataLocation = { latitude, longitude, date: new Date(), id: uuid.v4() }
-        setLocation(( prev ) => [...prev, dataLocation]);
-        // saveLocale(dataLocation)
+        const dataLocation = { latitude, longitude, date: getHours + ":" + getMinutes, id: uuid.v4(), status: status }
+        setLocation((prev) => [...prev, dataLocation]);
+        saveLocale(dataLocation)
       },
       error => {
         console.log(error);

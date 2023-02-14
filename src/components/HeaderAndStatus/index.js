@@ -19,7 +19,7 @@ export function HeaderAndStatus({ status }) {
             />
             <AreaDescription>
                 <NameLabel>My GPS - Tracking</NameLabel>
-                <StatusLabel style={{color: status == "Online" ? '#5FCD64' : 'red'}}>{status}</StatusLabel>
+                <StatusLabel style={{ color: status == "Online" ? '#5FCD64' : 'red' }}>{status}</StatusLabel>
             </AreaDescription>
         </Container>
     );

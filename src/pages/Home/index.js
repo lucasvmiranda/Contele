@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Switch } from 'react-native';
 import { HeaderAndStatus } from '../../components/HeaderAndStatus/index';
 import { LocationContext } from '../../context/locationcontext';
@@ -24,14 +24,14 @@ export function Home() {
     const { setTimeOption, setStatusOption } = useContext(LocationContext);
     const [temp, setTemp] = useState(setTimeOption)
 
-    const updateTime = (value) =>{
+    const updateTime = (value) => {
         setTimeOption(value)
         setTemp(value)
     }
+    setStatusOption(isEnabled)
 
     return (
         <Container>
-
             <HeaderAndStatus status={isEnabled == true ? "Online" : "Offline"} ></HeaderAndStatus>
             <LineSeparator />
             <Content>
