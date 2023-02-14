@@ -3,7 +3,7 @@
 - React-Native 0.71.2
 
 
-###How to run
+### How to run
 
 - yarn (to install the dependencies)
 - yarn start
