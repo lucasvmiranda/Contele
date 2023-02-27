@@ -11,11 +11,12 @@ export const styles = StyleSheet.create({
 });
 export const Container = styled.View`
     width: 100%;
-    height: 120px;
+    height: 100px;
     align-items: center;
     background-color: #f9f8ff;
-    padding: 0 0 0 40px;
-    display: flex;
+    padding: 0 0 0 20px;
+
+
     flex-direction: row;
 `;
 

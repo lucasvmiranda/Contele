@@ -6,8 +6,9 @@ export const Container = styled.View`
 `;
 
 export const Content = styled.View`
-    padding: 0 40px;
+    padding: 0 20px;
     background-color: #f9f8ff;
+
 `;
 
 export const AreaConfig = styled.View`
@@ -44,7 +45,9 @@ export const AreaToogle = styled.View`
 
 export const IntervalArea = styled.View`
     height: 130px;
-    justify-content: space-around;
+     justify-content: space-between;
+
+
 `;
 
 export const IntervalAreaButton = styled.View`
@@ -53,10 +56,11 @@ export const IntervalAreaButton = styled.View`
     justify-content: space-between;
     display: flex;
     flex-direction: row;
+    align-items: center;
 `;
 
 export const ButtonInterval = styled.TouchableOpacity`
-    width: 90px;
+    width: 80px;
     height: 70px;
     border: 1px solid gray;
     border-radius: 5px;

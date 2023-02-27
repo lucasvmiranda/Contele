@@ -49,7 +49,7 @@ export function Home() {
                         </AreaToogle>
                         <AreaDescription>
                             <TitleStatusOptions>Status do serviço</TitleStatusOptions>
-                            <DescriptionStatusOptions>Serviço ativo</DescriptionStatusOptions>
+                            <DescriptionStatusOptions>{status == true ? "Serviço ativo" : "Serviço inativo"}</DescriptionStatusOptions>
                         </AreaDescription>
                     </StatusToogleArea>
 
