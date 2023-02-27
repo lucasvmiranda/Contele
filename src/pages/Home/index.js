@@ -19,20 +19,21 @@ import {
 } from './styles';
 
 export function Home() {
-    const [isEnabled, setIsEnabled] = useState(false);
-    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-    const { setTimeOption, setStatusOption } = useContext(LocationContext);
+    const { setTimeOption, setStatusOption, status } = useContext(LocationContext);
     const [temp, setTemp] = useState(setTimeOption)
 
     const updateTime = (value) => {
         setTimeOption(value)
         setTemp(value)
     }
-    setStatusOption(isEnabled)
+  
+    const toggleSwitch = () =>{ 
+        setStatusOption(!status)
+    };
 
     return (
         <Container>
-            <HeaderAndStatus status={isEnabled == true ? "Online" : "Offline"} ></HeaderAndStatus>
+            <HeaderAndStatus status={status == true ? "Online" : "Offline"} ></HeaderAndStatus>
             <LineSeparator />
             <Content>
                 <AreaConfig>
@@ -40,10 +41,10 @@ export function Home() {
                         <AreaToogle>
                             <Switch
                                 trackColor={{ false: '#D4D3D3', true: '#D4D3D3' }}
-                                thumbColor={isEnabled ? '#5FCD64' : '#f4f3f4'}
+                                thumbColor={status ? '#5FCD64' : '#f4f3f4'}
                                 ios_backgroundColor="#3e3e3e"
                                 onValueChange={toggleSwitch}
-                                value={isEnabled}
+                                value={status}
                             />
                         </AreaToogle>
                         <AreaDescription>
