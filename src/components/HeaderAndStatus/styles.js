@@ -15,8 +15,6 @@ export const Container = styled.View`
     align-items: center;
     background-color: #f9f8ff;
     padding: 0 0 0 20px;
-
-
     flex-direction: row;
 `;
 

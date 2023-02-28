@@ -8,7 +8,6 @@ export const Container = styled.View`
 export const Content = styled.View`
     padding: 0 20px;
     background-color: #f9f8ff;
-
 `;
 
 export const AreaConfig = styled.View`
@@ -45,9 +44,7 @@ export const AreaToogle = styled.View`
 
 export const IntervalArea = styled.View`
     height: 130px;
-     justify-content: space-between;
-
-
+    justify-content: space-between;
 `;
 
 export const IntervalAreaButton = styled.View`

@@ -66,7 +66,6 @@ export function LocationProvider({ children }) {
 
     saveStorage()
 
-
     return () => {
       if (_watchId) {
         Geolocation.clearWatch(_watchId);
