@@ -4,6 +4,7 @@ import { PermissionsAndroid } from 'react-native';
 import uuid from 'react-native-uuid';
 import api from "../lib/api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { format } from 'date-fns'
 
 export const LocationContext = createContext([]);
 
@@ -48,8 +49,7 @@ export function LocationProvider({ children }) {
       position => {
         const { latitude, longitude } = position.coords;
 
-        const SaveAPI = { id: uuid.v4(), latitude: latitude, longitude: longitude, speed: time, time: new Date(), status: status, date: getHours + ":" + getMinutes }
-        console.warn("status?", status)
+        const SaveAPI = { id: uuid.v4(), latitude: latitude, longitude: longitude, speed: time, time: format(new Date(), 'yyyy-MM-dd'), status: status, date: getHours + ":" + getMinutes }
         if (status) {
           SaveOnline(SaveAPI)
         } else {
